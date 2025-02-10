@@ -214,7 +214,13 @@ void draw()
     //converts point size to pixel size.
     fill(200);
     textFont(font, (6 * DPIofYourDeviceScreen) / 72);
-    text("Entered: " + currentTyped +"|", width/2-sizeOfInputArea/2, height/2-sizeOfInputArea/2, sizeOfInputArea, sizeOfInputArea/4); //draw what the user has entered thus far 
+    text(currentTyped +"|", width/2-sizeOfInputArea/2 + 10, height/2-sizeOfInputArea/2+10, sizeOfInputArea-28, sizeOfInputArea/4); //draw what the user has entered thus far 
+    textAlign(CENTER);
+    textFont(font); //Reset font size
+    
+    char bs = '\u232b';
+    textFont(font, (8 * DPIofYourDeviceScreen) / 72);
+    text("" + bs, width/2-10, height/2-sizeOfInputArea/2+10, sizeOfInputArea, sizeOfInputArea/4); 
     textAlign(CENTER);
     textFont(font); //Reset font size
     
@@ -248,7 +254,9 @@ void mousePressed() {
   float[] middleRectangleXBounds = {hw-soia1667, hw+soia1667};
   float[] rightRectangleXBounds = {hw+soia1667, hw+soia50};
   
-  float[] rectangleYBounds = {hh+soia50, hh-soia25};// lowerbound, upperbound  
+  float[] rectangleYBounds = {hh+soia50, hh-soia25};// lowerbound, upperbound
+  
+  System.out.println("MouseX: " + mouseX + " MouseY: " + mouseY);
 
  
   // If the tap is on the top 80% of the watch face, delete one character.
